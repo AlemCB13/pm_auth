@@ -13,9 +13,9 @@ var rdb *redis.Client
 
 func init() {
 	rdb = redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379", // Dirección de Redis
-		Password: "",               // Sin contraseña
-		DB:       0,                // Base de datos por defecto
+		Addr:     "redis:6379", // Dirección de Redis
+		Password: "",           // Sin contraseña
+		DB:       0,            // Base de datos por defecto
 	})
 }
 
