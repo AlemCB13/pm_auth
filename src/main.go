@@ -17,6 +17,7 @@ func main() {
 	r.HandleFunc("/login", handlers.Login).Methods("POST")
 	r.HandleFunc("/logout", handlers.Logout).Methods("POST")
 	r.HandleFunc("/2fa", handlers.TwoFactorAuth).Methods("POST")
+	r.HandleFunc("/health", handlers.HealthCheckHandler).Methods("GET")
 
 	// Iniciar el servidor
 	log.Println("Servidor de autenticación iniciado en el puerto 8080")
