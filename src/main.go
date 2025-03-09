@@ -13,11 +13,11 @@ func main() {
 	r := mux.NewRouter()
 
 	// Definir rutas
-	r.HandleFunc("/register", handlers.Register).Methods("POST")
-	r.HandleFunc("/login", handlers.Login).Methods("POST")
-	r.HandleFunc("/logout", handlers.Logout).Methods("POST")
-	r.HandleFunc("/2fa", handlers.TwoFactorAuth).Methods("POST")
-	r.HandleFunc("/health", handlers.HealthCheckHandler).Methods("GET")
+	apirRouter := r.PathPrefix("/api").Subrouter()
+	apirRouter.HandleFunc("/register", handlers.Register).Methods("POST")
+	apirRouter.HandleFunc("/login", handlers.Login).Methods("POST")
+	apirRouter.HandleFunc("/logout", handlers.Logout).Methods("POST")
+	apirRouter.HandleFunc("/2fa", handlers.TwoFactorAuth).Methods("POST")
 
 	// Iniciar el servidor
 	log.Println("Servidor de autenticación iniciado en el puerto 8080")
