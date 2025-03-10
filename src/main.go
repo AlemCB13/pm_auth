@@ -20,5 +20,5 @@ func main() {
 
 	// Iniciar el servidor
 	log.Println("Servidor de autenticación iniciado en el puerto 8080")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	log.Fatal(http.ListenAndServe("0.0.0.0:8080", r))
 }
